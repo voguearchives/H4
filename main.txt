@@ -1,0 +1,10 @@
+cat >hello.cc <<EOF
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}
+EOF
+clang++ hello.cc -o h
+./h
