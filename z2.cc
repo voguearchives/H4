@@ -21,50 +21,12 @@ limitations under the License.
 
 typedef unsigned long NumN;
 
-
-template<typename T>
-void math21_tool_std_vector_resize(std::vector<T> &A, NumN size) {
-    try {
-        A.resize(size);
-    }
-    catch (const std::length_error &le) {
-        assert(0);
-    }
-}
-
-template<typename T>
-void m21cout(const T& a){
-#ifdef MATH21_ANDROID
-    SimpleStreamBuf ssb;
-        std::streambuf *backup;
-        backup = std::cout.rdbuf();
-        std::cout.rdbuf(&ssb);
-        std::cout << a;
-        std::cout.rdbuf(backup);
-#else
-    std::cout << a;
-#endif
-
-}
-
-
-template<typename T>
-void m21log(T b) {
-#if defined(MATH21_DISABLE_LOG)
-    return;
-#endif
-
-    m21cout(b);
-    m21cout("\n");
-}
-
 void test_std() {
-    m21log(__FUNCTION__);
     std::vector<int> v;
     NumN size = 10;
 
-    math21_tool_std_vector_resize(v, size);
-    m21log(v.size());
+//    std::cout << v << std::endl;
+    std::cout << v.size() << std::endl;
 }
 
 int main(int argc, char **) {
